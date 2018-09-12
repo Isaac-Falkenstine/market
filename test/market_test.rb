@@ -46,6 +46,9 @@ class MarketTest < MiniTest::Test
   end
 
   def test_can_find_vendor_by_products_for_sale
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
     assert_equal [@vendor_1, @vendor_3], @market.vendors_that_sell("Peaches")
     assert_equal [@vendor_2], @market.vendors_that_sell("Banana Nice Cream")
   end

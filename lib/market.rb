@@ -18,10 +18,8 @@ class Market
   end
 
   def vendors_that_sell(item)
-    @vendors.map do |vendor|
-      if vendor.check_stock(item) != 0
-        vendor
-      end
+    @vendors.find_all do |vendor|
+      vendor.check_stock(item) != 0
     end
   end
 end
