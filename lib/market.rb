@@ -29,4 +29,12 @@ class Market
     end.flatten
     all_items_array.uniq.sort
   end
+
+  def total_inventory
+    array = @vendors.map do |vendor|
+      vendor.inventory
+    end
+
+    array.flat_map(&:values).sum
+  end
 end
