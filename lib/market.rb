@@ -22,4 +22,11 @@ class Market
       vendor.check_stock(item) != 0
     end
   end
+
+  def sorted_item_list
+    all_items_array = @vendors.map do |vendor|
+      vendor.inventory.keys
+    end.flatten
+    all_items_array.uniq.sort
+  end
 end
