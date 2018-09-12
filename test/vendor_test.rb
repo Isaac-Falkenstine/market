@@ -32,4 +32,11 @@ class VendorTest < MiniTest::Test
     assert_equal 55, vendor.check_stock("Peaches")
   end
 
+  def test_it_can_have_multiple_items_in_inventory
+    vendor = Vendor.new("Rocky Mountain Fresh")
+    vendor.stock("Peaches", 55)
+    vendor.stock("Tomatoes", 12)
+    expected = {"Peaches" => 55, "Tomatoes" => 12}
+    assert_equal expected, vendor.inventory
+  end
 end
